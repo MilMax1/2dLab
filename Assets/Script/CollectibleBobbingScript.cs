@@ -5,10 +5,8 @@ using UnityEngine;
 public class Collectible2D : MonoBehaviour
 {
 
-    public float BobbingSpeed = 4f; // Speed of bobbing
+    public float BobbingSpeed = 3f; // Speed of bobbing
     public float BobbingHeight = 0.1f; // Height of bobbing
-    public GameObject onCollectEffect;
-
     private Vector3 startPosition;
 
     void Start()
