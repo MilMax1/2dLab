@@ -8,37 +8,44 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce = 12f;
     [SerializeField] private float fallMultiplier = 2.5f;
     [SerializeField] private float lowJumpMultiplier = 2f;
+    [SerializeField] private float wallBounceForce = 30f;
+    [SerializeField] private float wallBounceCooldown = 0.2f;
+    
+    [Header("Physics Settings")]
+    [SerializeField] private PhysicsMaterial2D bouncyMaterial;
     
     [Header("Ground Check")]
     [SerializeField] private float groundRayLength = 0.2f;
     [SerializeField] private Vector2 groundRayOffset = new Vector2(0.25f, 0);
     [SerializeField] private LayerMask groundLayer;
 
-    // Components
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D boxCollider2D;
     
-    // States
     private bool isGrounded;
     private bool isRunning;
     private bool isFacingRight = true;
-    
-    // Movement
     private float horizontalInput;
     
-    // Animation parameter names - updated to match standard animation parameter names
-    private readonly string animState = "AnimState";  // Integer parameter to control animation state
+    private bool isTouchingWall;
+    private bool wasTouchingWall;
+    private float lastWallTouchTime;
+    
+    private readonly string animState = "AnimState";
     private readonly int IDLE = 0;
     private readonly int WALK = 1;
     private readonly int RUN = 2;
     private readonly int JUMP = 3;
     private readonly int FALL = 4;
-    
+
+    private bool disableHorizontalMovement = false;
+    private float movementDisableTimer = 0f;
+    private Vector2 wallBounceVelocity;
+
     void Start()
     {
-        // Get components
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -47,17 +54,25 @@ public class PlayerController : MonoBehaviour
         if (boxCollider2D == null)
         {
             boxCollider2D = gameObject.AddComponent<BoxCollider2D>();
-            Debug.LogWarning("BoxCollider2D was not found and has been automatically added.");
+        }
+        
+        if (rb != null)
+        {
+            rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+            rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+            
+            if (bouncyMaterial != null)
+            {
+                boxCollider2D.sharedMaterial = bouncyMaterial;
+            }
         }
     }
-    
+
     void Update()
     {
-        // Get input
         horizontalInput = Input.GetAxisRaw("Horizontal");
         isRunning = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
         
-        // Check if player is trying to jump
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             Jump();
@@ -73,23 +88,70 @@ public class PlayerController : MonoBehaviour
         {
             Flip();
         }
+        
+        if (disableHorizontalMovement)
+        {
+            movementDisableTimer -= Time.deltaTime;
+            if (movementDisableTimer <= 0)
+            {
+                disableHorizontalMovement = false;
+            }
+        }
     }
     
     void FixedUpdate()
     {
         CheckGrounded();
+        CheckWallCollision();
         
-        Move();
+        if (!disableHorizontalMovement)
+        {
+            Move();
+        }
+        else
+        {
+            rb.linearVelocity = new Vector2(wallBounceVelocity.x, rb.linearVelocity.y);
+        }
         
         ApplyJumpPhysics();
+    }
+    
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (Time.time - lastWallTouchTime < wallBounceCooldown)
+            return;
+            
+        foreach (ContactPoint2D contact in collision.contacts)
+        {
+            if (Mathf.Abs(contact.normal.x) > 0.5f)
+            {
+                float bounceDirection = contact.normal.x;
+                float bounceStrength = wallBounceForce;
+                
+                TriggerWallBounce(bounceDirection, bounceStrength);
+                break;
+            }
+        }
+    }
+    
+    private void TriggerWallBounce(float direction, float strength)
+    {
+        wallBounceVelocity = new Vector2(direction * strength, rb.linearVelocity.y + 2f);
+        
+        disableHorizontalMovement = true;
+        movementDisableTimer = 0.2f;
+        
+        rb.linearVelocity = wallBounceVelocity;
+        
+        lastWallTouchTime = Time.time;
+        
+        Debug.Log($"WALL BOUNCE! Direction: {direction}, Strength: {strength}, Velocity: {wallBounceVelocity}");
     }
     
     private void Move()
     {
         float speed = isRunning ? runSpeed : walkSpeed;
-        
-        Vector2 targetVelocity = new Vector2(horizontalInput * speed, rb.linearVelocity.y);
-        rb.linearVelocity = targetVelocity;
+        rb.linearVelocity = new Vector2(horizontalInput * speed, rb.linearVelocity.y);
     }
     
     private void Jump()
@@ -107,85 +169,86 @@ public class PlayerController : MonoBehaviour
         {
             rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
-        
     }
     
     private void CheckGrounded()
     {
         if (boxCollider2D == null) return;
         
-        // Calculate raycast origin points at the bottom corners of the collider
         Bounds bounds = boxCollider2D.bounds;
         Vector2 leftOrigin = new Vector2(bounds.min.x + groundRayOffset.x, bounds.min.y);
         Vector2 rightOrigin = new Vector2(bounds.max.x - groundRayOffset.x, bounds.min.y);
         Vector2 centerOrigin = new Vector2(bounds.center.x, bounds.min.y);
         
-        // Cast rays from the left, center, and right of the collider
         bool hitLeft = Physics2D.Raycast(leftOrigin, Vector2.down, groundRayLength, groundLayer);
         bool hitCenter = Physics2D.Raycast(centerOrigin, Vector2.down, groundRayLength, groundLayer);
         bool hitRight = Physics2D.Raycast(rightOrigin, Vector2.down, groundRayLength, groundLayer);
         
-        // Player is grounded if any ray hits the ground
         isGrounded = hitLeft || hitCenter || hitRight;
+    }
+    
+    private void CheckWallCollision()
+    {
+        if (boxCollider2D == null) return;
+        
+        wasTouchingWall = isTouchingWall;
+        
+        Bounds bounds = boxCollider2D.bounds;
+        Vector2 rightOrigin = new Vector2(bounds.max.x, bounds.center.y);
+        Vector2 leftOrigin = new Vector2(bounds.min.x, bounds.center.y);
+        
+        RaycastHit2D hitRight = Physics2D.Raycast(rightOrigin, Vector2.right, 0.2f, groundLayer);
+        RaycastHit2D hitLeft = Physics2D.Raycast(leftOrigin, Vector2.left, 0.2f, groundLayer);
+        
+        Debug.DrawRay(rightOrigin, Vector2.right * 0.2f, hitRight ? Color.yellow : Color.cyan);
+        Debug.DrawRay(leftOrigin, Vector2.left * 0.2f, hitLeft ? Color.yellow : Color.cyan);
+        
+        bool hitRightWall = hitRight.collider != null;
+        bool hitLeftWall = hitLeft.collider != null;
+        isTouchingWall = hitRightWall || hitLeftWall;
+        
+        if (isTouchingWall && !wasTouchingWall)
+        {
+            bool movingTowardWall = (hitRightWall && horizontalInput > 0) || (hitLeftWall && horizontalInput < 0);
+            
+            if (movingTowardWall && Mathf.Abs(rb.linearVelocity.x) > 2f)
+            {
+                float bounceDirection = hitRightWall ? -1f : 1f;
+                TriggerWallBounce(bounceDirection, wallBounceForce);
+            }
+        }
     }
     
     private void UpdateAnimations()
     {
-        if (animator != null)
+        if (animator == null) return;
+        
+        int animationState;
+        
+        if (!isGrounded)
         {
-            // Determine animation state based on player's current state
-            int animationState;
-            
-            if (!isGrounded)
-            {
-                if (rb.linearVelocity.y > 0)
-                {
-                    // Jumping
-                    animationState = JUMP;
-                }
-                else
-                {
-                    // Falling
-                    animationState = FALL;
-                }
-            }
-            else if (Mathf.Abs(horizontalInput) > 0.1f)
-            {
-                if (isRunning)
-                {
-                    // Running
-                    animationState = RUN;
-                }
-                else
-                {
-                    // Walking
-                    animationState = WALK;
-                }
-            }
-            else
-            {
-                // Idle
-                animationState = IDLE;
-            }
-            
-            // Set the animation state
-            animator.SetInteger(animState, animationState);
-            
-            Debug.Log($"Animation State: {animationState}, Grounded: {isGrounded}, HInput: {horizontalInput}, Running: {isRunning}");
+            animationState = rb.linearVelocity.y > 0 ? JUMP : FALL;
         }
+        else if (Mathf.Abs(horizontalInput) > 0.1f)
+        {
+            animationState = isRunning ? RUN : WALK;
+        }
+        else
+        {
+            animationState = IDLE;
+        }
+        
+        animator.SetInteger(animState, animationState);
     }
     
     private void Flip()
     {
-        // Flip the sprite by changing the X scale
         isFacingRight = !isFacingRight;
-        
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
     }
     
-    // Draw gizmos for ground check ray visualization in the editor
     void OnDrawGizmosSelected()
     {
         if (boxCollider2D == null)
@@ -194,6 +257,7 @@ public class PlayerController : MonoBehaviour
         if (boxCollider2D != null)
         {
             Bounds bounds = boxCollider2D.bounds;
+            
             Vector2 leftOrigin = new Vector2(bounds.min.x + groundRayOffset.x, bounds.min.y);
             Vector2 rightOrigin = new Vector2(bounds.max.x - groundRayOffset.x, bounds.min.y);
             Vector2 centerOrigin = new Vector2(bounds.center.x, bounds.min.y);
@@ -202,6 +266,13 @@ public class PlayerController : MonoBehaviour
             Gizmos.DrawLine(leftOrigin, leftOrigin + Vector2.down * groundRayLength);
             Gizmos.DrawLine(centerOrigin, centerOrigin + Vector2.down * groundRayLength);
             Gizmos.DrawLine(rightOrigin, rightOrigin + Vector2.down * groundRayLength);
+            
+            Vector2 rightWallOrigin = new Vector2(bounds.max.x, bounds.center.y);
+            Vector2 leftWallOrigin = new Vector2(bounds.min.x, bounds.center.y);
+            
+            Gizmos.color = isTouchingWall ? Color.yellow : Color.cyan;
+            Gizmos.DrawLine(rightWallOrigin, rightWallOrigin + Vector2.right * 0.2f);
+            Gizmos.DrawLine(leftWallOrigin, leftWallOrigin + Vector2.left * 0.2f);
         }
     }
 }
