@@ -9,19 +9,44 @@ public class CollectCollectible : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-
-        // Check if the other object has a PlayerController2D component
         if (other.GetComponent<PlayerController>() != null)
         {
-            // Destroy the collectible
-            Destroy(gameObject);
+            Debug.Log("Trigger entered by player!");
 
-            // Instantiate the particle effect
-            Instantiate(onCollectEffect, transform.position, transform.rotation);
-            AudioSource.PlayClipAtPoint(onCollectSound, Camera.main.transform.position, soundVolume);
-            UIManager.Instance.AddCan();
+            if (onCollectEffect != null)
+            {
+                Instantiate(onCollectEffect, transform.position, transform.rotation);
+                Debug.Log("Effect spawned.");
+            }
+            else
+            {
+                Debug.LogWarning("onCollectEffect is null.");
+            }
+
+            if (onCollectSound != null && Camera.main != null)
+            {
+                AudioSource.PlayClipAtPoint(onCollectSound, Camera.main.transform.position, soundVolume);
+                Debug.Log("Sound played.");
+            }
+            else
+            {
+                Debug.LogWarning("AudioClip or Camera.main is null.");
+            }
+
+            if (UIManager.Instance != null)
+            {
+                UIManager.Instance.AddCan();
+                Debug.Log("Can added.");
+            }
+            else
+            {
+                Debug.LogWarning("UIManager.Instance is null.");
+            }
+
+            Destroy(gameObject);
         }
     }
+
 }
 
 
