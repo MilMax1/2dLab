@@ -741,11 +741,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BobbingSpeed: 3
   BobbingHeight: 0.1
-<<<<<<< Updated upstream
---- !u!1 &441595834
-=======
 --- !u!1 &519420028
->>>>>>> Stashed changes
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
