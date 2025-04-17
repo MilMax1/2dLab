@@ -20,7 +20,7 @@ public class EnemyController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            
+
             PlayerController player = other.GetComponent<PlayerController>();
             if (player != null)
             {
