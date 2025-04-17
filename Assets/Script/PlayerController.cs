@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector2 groundRayOffset = new Vector2(0.25f, 0);
     [SerializeField] private LayerMask groundLayer;
 
+    [Header("Health")] [SerializeField] private int health = 3;
+
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
@@ -247,6 +249,12 @@ public class PlayerController : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
+    }
+
+    public void TakeDamage(int dmg)
+    {
+        health = health - dmg;
+        Debug.Log($"Damage taken{dmg} health is now {health}");
     }
     
     void OnDrawGizmosSelected()
