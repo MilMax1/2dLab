@@ -164,9 +164,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c23017f083bd5714da831d691c9e23bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
-  resetPositionX: 10
-  leftLimitX: -10
+  speed: 10
+  resetPositionX: 1200
+  leftLimitX: -20
 --- !u!212 &299456773
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -285,7 +285,7 @@ Transform:
   m_GameObject: {fileID: 344830222}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 637, y: 534, z: 100}
+  m_LocalPosition: {x: 558, y: 538, z: 100}
   m_LocalScale: {x: 76.89555, y: 78.74506, z: 1.7066664}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -303,8 +303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c23017f083bd5714da831d691c9e23bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
-  resetPositionX: 10
+  speed: 10
+  resetPositionX: 1200
   leftLimitX: -10
 --- !u!212 &344830225
 SpriteRenderer:
@@ -861,7 +861,7 @@ Transform:
   m_GameObject: {fileID: 856423251}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -256.18835, y: 516.7363, z: 0}
+  m_LocalPosition: {x: -119, y: 523, z: 0}
   m_LocalScale: {x: 76.89555, y: 78.74506, z: 1.7066664}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -879,8 +879,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c23017f083bd5714da831d691c9e23bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
-  resetPositionX: 10
+  speed: 10
+  resetPositionX: 1200
   leftLimitX: -10
 --- !u!212 &856423254
 SpriteRenderer:
