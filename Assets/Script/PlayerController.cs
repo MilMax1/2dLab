@@ -19,7 +19,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector2 groundRayOffset = new Vector2(0.25f, 0);
     [SerializeField] private LayerMask groundLayer;
 
-    [Header("Health")] [SerializeField] private int health = 3;
+    [Header("Health Settings")] 
+    [SerializeField] private int health = 3;
+    [SerializeField] private float invulnerabilityTime = 1f;
+    [SerializeField] private float flashInterval = 0.1f;
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -45,6 +48,11 @@ public class PlayerController : MonoBehaviour
     private bool disableHorizontalMovement = false;
     private float movementDisableTimer = 0f;
     private Vector2 wallBounceVelocity;
+    
+    // Damage handling variables
+    private bool isInvulnerable = false;
+    private float invulnerabilityTimer = 0f;
+    private bool isFlashing = false;
 
     void Start()
     {
@@ -99,6 +107,29 @@ public class PlayerController : MonoBehaviour
                 disableHorizontalMovement = false;
             }
         }
+        
+        // Update invulnerability
+        if (isInvulnerable)
+        {
+            invulnerabilityTimer -= Time.deltaTime;
+            
+            // Handle flashing effect
+            if (spriteRenderer != null)
+            {
+                isFlashing = !isFlashing;
+                if (Time.time % flashInterval < flashInterval / 2)
+                    spriteRenderer.enabled = isFlashing;
+                else
+                    spriteRenderer.enabled = !isFlashing;
+            }
+            
+            if (invulnerabilityTimer <= 0)
+            {
+                isInvulnerable = false;
+                if (spriteRenderer != null)
+                    spriteRenderer.enabled = true;
+            }
+        }
     }
     
     void FixedUpdate()
@@ -120,9 +151,23 @@ public class PlayerController : MonoBehaviour
     
     void OnCollisionEnter2D(Collision2D collision)
     {
+        // Skip if wall touch is on cooldown
         if (Time.time - lastWallTouchTime < wallBounceCooldown)
             return;
+        
+        // Check if it's an enemy before checking for wall bounce
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            // For enemies, we want to handle the bounce differently
+            TakeDamage(1);
             
+            // Calculate bounce direction (away from enemy)
+            Vector2 bounceDirection = (transform.position - collision.transform.position).normalized;
+            TriggerWallBounce(bounceDirection.x, wallBounceForce * 0.7f);
+            return;
+        }
+            
+        // Normal wall bouncing logic
         foreach (ContactPoint2D contact in collision.contacts)
         {
             if (Mathf.Abs(contact.normal.x) > 0.5f)
@@ -253,8 +298,24 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(int dmg)
     {
+        // Skip damage if invulnerable
+        if (isInvulnerable) return;
+        
         health = health - dmg;
-        Debug.Log($"Damage taken{dmg} health is now {health}");
+        Debug.Log($"Damage taken: {dmg}, health is now {health}");
+        
+        // Enable invulnerability with visual feedback
+        isInvulnerable = true;
+        invulnerabilityTimer = invulnerabilityTime;
+        
+        // TODO: Add any damage animations or sounds here
+        
+        // Check for game over
+        if (health <= 0)
+        {
+            Debug.Log("GAME OVER - Player has died!");
+            // TODO: Implement game over logic
+        }
     }
     
     void OnDrawGizmosSelected()
