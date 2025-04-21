@@ -23,7 +23,7 @@ public class PlaySoundOnXPass : MonoBehaviour
         float currentX = transform.position.x;
 
         // Check if we crossed the target X from left to right
-        if (targetX < previousX && targetX >= currentX)
+        if (targetX > previousX && targetX <= currentX)
         {
             audioSource.PlayOneShot(soundToPlay);
         }
