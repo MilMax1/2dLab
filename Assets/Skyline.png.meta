@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3778418cabdd0a142bd92eff9c9911e6
+guid: e162a2158bd0ecd4495410e4457cb707
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Skyline_0: 3196948014818396212
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
