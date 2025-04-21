@@ -10,7 +10,7 @@ public class CloudMover : MonoBehaviour
     {
         transform.Translate(Vector2.left * speed * Time.deltaTime);
 
-        if (transform.position.x > leftLimitX)
+        if (transform.position.x < leftLimitX)
         {
             Vector3 newPos = transform.position;
             newPos.x = resetPositionX;

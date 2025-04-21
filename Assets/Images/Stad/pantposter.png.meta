@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ed6983b425670bc44a5929fe37114d2e
+guid: 271d7b8274e34504ba4aa5cd407405cf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4295459020060022879
-    second: pixelbird_0
+      213: -907741619459232582
+    second: pantposter_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pixelbird_0
+      name: pantposter_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 572
-        height: 599
+        width: 1536
+        height: 818
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1a7231297c67364c0800000000000000
-      internalID: -4295459020060022879
+      spriteID: abc6b487ecd0763f0800000000000000
+      internalID: -907741619459232582
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      pixelbird_0: -4295459020060022879
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
