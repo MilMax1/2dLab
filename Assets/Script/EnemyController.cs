@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    Animator anim;
+
     public float moveSpeed = 2f;
     public float moveDistance = 3f;
 
@@ -11,6 +13,20 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         startingPosition = transform.position;
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+
+            PlayerController player = other.GetComponent<PlayerController>();
+            if (player != null)
+            {
+                player.TakeDamage(1);
+            }
+        }
     }
 
     private void Update()

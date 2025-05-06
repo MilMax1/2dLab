@@ -5,7 +5,7 @@ public class PlayerController : MonoBehaviour
     [Header("Movement Settings")]
     [SerializeField] private float walkSpeed = 5f;
     [SerializeField] private float runSpeed = 8f;
-    [SerializeField] private float jumpForce = 12f;
+    [SerializeField] private float jumpForce = 10f;
     [SerializeField] private float fallMultiplier = 2.5f;
     [SerializeField] private float lowJumpMultiplier = 2f;
     [SerializeField] private float wallBounceForce = 30f;
@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float groundRayLength = 0.2f;
     [SerializeField] private Vector2 groundRayOffset = new Vector2(0.25f, 0);
     [SerializeField] private LayerMask groundLayer;
+
+    [Header("Health")] [SerializeField] private int health = 3;
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -247,6 +249,12 @@ public class PlayerController : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
+    }
+
+    public void TakeDamage(int dmg)
+    {
+        health = health - dmg;
+        Debug.Log($"Damage taken{dmg} health is now {health}");
     }
     
     void OnDrawGizmosSelected()
