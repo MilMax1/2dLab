@@ -41,6 +41,6 @@ public class TimerManager : MonoBehaviour
     void HandleTimeExpired()
     {
         
-        SceneManager.LoadScene("LoseScene");
+        SceneManager.LoadScene("CityLooseMenu");
     }
 }
