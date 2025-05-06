@@ -281,8 +281,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 5
   runSpeed: 8
-  jumpForce: 12
-  fallMultiplier: 2.5
+  jumpForce: 10
+  fallMultiplier: 3
   lowJumpMultiplier: 2
   wallBounceForce: 3
   wallBounceCooldown: 0.2
@@ -293,6 +293,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   health: 3
+  invulnerabilityTime: 1
+  flashInterval: 0.1
 --- !u!61 &101214719
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -965,9 +967,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2501267305234431890, guid: 4d17a317dd0295d428323c8cb7a7d828, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332683787983186556, guid: 4d17a317dd0295d428323c8cb7a7d828, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3809174975605042374, guid: 4d17a317dd0295d428323c8cb7a7d828, type: 3}
       propertyPath: m_Name
       value: rat-black
+      objectReference: {fileID: 0}
+    - target: {fileID: 3809174975605042374, guid: 4d17a317dd0295d428323c8cb7a7d828, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7299183703499650051, guid: 4d17a317dd0295d428323c8cb7a7d828, type: 3}
       propertyPath: m_LocalPosition.x
