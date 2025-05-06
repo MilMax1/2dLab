@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Pantmannen_0: 7761534914070848535
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
