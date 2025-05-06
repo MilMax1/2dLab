@@ -22,7 +22,8 @@ public class TimerManager : MonoBehaviour
             {
                 timeRemaining = 0;
                 timerIsRunning = false;
-                HandleTimeExpired();
+
+                HandleTimeExpired();  
             }
         }
     }
