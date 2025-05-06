@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6b04cd0fd137fb84a83436571b1bec10
+guid: 7d7f6b623b153bf4b98f42385b5a775c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3499837949914483566
-    second: MainmenuPicture2_0
+      213: -3334740762325406850
+    second: deadpantman_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MainmenuPicture2_0
+      name: deadpantman_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 53
+        y: 18
         width: 800
-        height: 410
+        height: 183
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e6b8510921ce19030800000000000000
-      internalID: 3499837949914483566
+      spriteID: e7b2493e1fe98b1d0800000000000000
+      internalID: -3334740762325406850
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      MainmenuPicture2_0: 3499837949914483566
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
