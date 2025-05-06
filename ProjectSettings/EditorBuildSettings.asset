@@ -4,36 +4,6 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: e629d7b00920eca45b22c0c46b4b8cac
-  - enabled: 1
-    path: Assets/Scenes/PlayerTestScene.unity
-    guid: ac442960820cba94c8f6b7c8ed7057a2
-  - enabled: 1
-<<<<<<< HEAD
-<<<<<<< HEAD
-    path: Assets/Scenes/Level 2 City.unity
-    guid: fc452ce723362df48a9cf074c2fd4f15
-  - enabled: 1
-    path: Assets/Scenes/CityWinMenu.unity
-    guid: b4053d61f0a567b42977d848737c8a29
-=======
-=======
->>>>>>> b14e784ff9a8d182d7e618627446aecfade02166
-    path: Assets/Scenes/LevelSelect.unity
-    guid: 44f08e8a875c41f43a0380527b42af5b
-  - enabled: 1
-    path: Assets/Scenes/Level 1 Park.unity
-    guid: fa132e996ea8f54438c8abd6076499e8
-<<<<<<< HEAD
->>>>>>> MainMenu
-=======
->>>>>>> b14e784ff9a8d182d7e618627446aecfade02166
-  m_configObjects:
-    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  m_Scenes: []
+  m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
