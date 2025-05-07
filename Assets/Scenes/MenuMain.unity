@@ -367,7 +367,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 321981432}
-  - component: {fileID: 321981434}
   - component: {fileID: 321981433}
   m_Layer: 5
   m_Name: SettingsMenu
@@ -407,18 +406,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e87aafa12142344797fab877c07cd5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &321981434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 321981431}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 392c6b2d9c22eba4bb828d0938050920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &344830222
@@ -686,6 +673,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7892291102288264957, guid: c10e7ffea13269146add5b0cf873ac22, type: 3}
     - {fileID: 1488574183851923435, guid: c10e7ffea13269146add5b0cf873ac22, type: 3}
+    - {fileID: 8155507266814809619, guid: c10e7ffea13269146add5b0cf873ac22, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1860,7 +1848,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1347007202}
-  - component: {fileID: 1347007203}
   - component: {fileID: 1347007204}
   m_Layer: 5
   m_Name: BackButton
@@ -1888,18 +1875,6 @@ RectTransform:
   m_AnchoredPosition: {x: 486.99994, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1347007203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1347007201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 392c6b2d9c22eba4bb828d0938050920, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1347007204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2160,7 +2135,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1909370239}
-  - component: {fileID: 1909370240}
   - component: {fileID: 1909370241}
   - component: {fileID: 1909370242}
   m_Layer: 5
@@ -2192,18 +2166,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1909370240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1909370238}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 392c6b2d9c22eba4bb828d0938050920, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1909370241
 MonoBehaviour:
   m_ObjectHideFlags: 0
