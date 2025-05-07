@@ -337,7 +337,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -130}
+  m_AnchoredPosition: {x: 10, y: -130}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &619729467
@@ -470,7 +470,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -47}
+  m_AnchoredPosition: {x: 10, y: -49}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &690136522
@@ -1329,7 +1329,7 @@ GameObject:
   - component: {fileID: 1363616526}
   - component: {fileID: 1363616525}
   m_Layer: 0
-  m_Name: Pantmannen_0
+  m_Name: LoserPantman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1379,7 +1379,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 7761534914070848535, guid: b25e9d497d6ca7d4eb916d4e19f53ea9, type: 3}
+  m_Sprite: {fileID: -3334740762325406850, guid: 7d7f6b623b153bf4b98f42385b5a775c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1399,8 +1399,8 @@ Transform:
   m_GameObject: {fileID: 1363616524}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.442, y: 1.337, z: 0}
-  m_LocalScale: {x: 0.7469767, y: 0.7469767, z: 0.7469767}
+  m_LocalPosition: {x: 4.86, y: -0.097, z: 0}
+  m_LocalScale: {x: 0.54327613, y: 0.54327613, z: 0.54327613}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1439,8 +1439,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 87, y: 75}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 127, y: 58}
+  m_SizeDelta: {x: 196.66, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1398013618
 MonoBehaviour:
@@ -1462,7 +1462,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Victory
+  m_text: Defeat
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 80ae68719b63e564eb56ae5b81b98ae8, type: 2}
   m_sharedMaterial: {fileID: 5869646030472817448, guid: 80ae68719b63e564eb56ae5b81b98ae8, type: 2}
@@ -1527,7 +1527,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 53.69374, w: 18.673527}
+  m_margin: {x: 0, y: 0, z: 62.36322, w: 18.673527}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1941,7 +1941,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Replay
+  m_text: Try Again
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 80ae68719b63e564eb56ae5b81b98ae8, type: 2}
   m_sharedMaterial: {fileID: 5869646030472817448, guid: 80ae68719b63e564eb56ae5b81b98ae8, type: 2}
