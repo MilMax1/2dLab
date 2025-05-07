@@ -1661,7 +1661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadGame: Level 2 City
-  mainMenu: MainMenu
+  mainMenu: MenuMain
 --- !u!114 &1621424558
 MonoBehaviour:
   m_ObjectHideFlags: 0
