@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 
     private int canCount = 0;
     public TextMeshProUGUI cansCollectedText;
+    public TextMeshProUGUI healthText;
 
     private void Awake()
     {
@@ -20,6 +21,11 @@ public class UIManager : MonoBehaviour
     {
         canCount++;
         UpdateUI();
+    }
+    
+    public void UpdateHealth(int currentHealth)
+    {
+        healthText.text = "" + currentHealth;
     }
 
     void UpdateUI()

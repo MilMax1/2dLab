@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -75,6 +76,11 @@ public class PlayerController : MonoBehaviour
             {
                 boxCollider2D.sharedMaterial = bouncyMaterial;
             }
+        }
+
+        if (UIManager.Instance != null)
+        {
+            UIManager.Instance.UpdateHealth(health);
         }
     }
 
@@ -304,6 +310,11 @@ public class PlayerController : MonoBehaviour
         health = health - dmg;
         Debug.Log($"Damage taken: {dmg}, health is now {health}");
         
+        if (UIManager.Instance != null)
+        {
+            UIManager.Instance.UpdateHealth(health);
+        }
+        
         // Enable invulnerability with visual feedback
         isInvulnerable = true;
         invulnerabilityTimer = invulnerabilityTime;
@@ -314,7 +325,7 @@ public class PlayerController : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log("GAME OVER - Player has died!");
-            // TODO: Implement game over logic
+            SceneManager.LoadScene("CityLooseMenu");
         }
     }
     
