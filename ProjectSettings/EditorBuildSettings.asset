@@ -35,6 +35,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CityWinMenu.unity
     guid: cc7af49be8bde0947977af131edbbc9c
+  - enabled: 1
+    path: Assets/Scenes/ParkLooseMenu.unity
+    guid: bc1823fa15d79644db0c1d563cd4163f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

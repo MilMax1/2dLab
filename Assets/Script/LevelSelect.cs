@@ -5,7 +5,7 @@ public class LevelSelect : MonoBehaviour
 {
     public void PlayLevelOne()
     {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(4);
     }
 
     public void PlayLevelTwo()
@@ -15,6 +15,6 @@ public class LevelSelect : MonoBehaviour
 
     public void BackToMainMenu()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(0);
     }
 }
