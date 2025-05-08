@@ -956,7 +956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba217dca93be6d45b2a6da50a0da7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadGame: 
+  loadGame: Level 1 Park
 --- !u!1 &1060611282
 GameObject:
   m_ObjectHideFlags: 0
