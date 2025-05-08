@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Pausemenu : MonoBehaviour
 {
     public GameObject PauseMenu;
@@ -29,6 +29,13 @@ public class Pausemenu : MonoBehaviour
     public void ResumeGame()
     {
         PauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+        isPaused = false;
+    }
+
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene("Level 1 Park");
         Time.timeScale = 1f;
         isPaused = false;
     }
