@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class WinMenu : MonoBehaviour
 {
     public string loadGame;
+    public bool isPaused;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void LoadLevel()
@@ -19,5 +20,7 @@ public class WinMenu : MonoBehaviour
     {
         //SceneManager.LoadScene("MenuMain");
         SceneManager.LoadScene("MenuMain");
+        Time.timeScale = 1f;
+        isPaused = false;
     }
 }
