@@ -1351,7 +1351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: CityWinMenu
-  onCollectEffect: {fileID: 0}
+  onCollectEffect: {fileID: 9163842254569548763, guid: 3198dcd99113e154f8e37a1e19f68fb3, type: 3}
   animationDuration: 1
 --- !u!61 &109878250
 BoxCollider2D:
