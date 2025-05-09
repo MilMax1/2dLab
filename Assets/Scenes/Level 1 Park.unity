@@ -4693,6 +4693,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: ParkLooseMenu
+  onCollectEffect: {fileID: 0}
+  animationDuration: 1
 --- !u!4 &1274376748
 Transform:
   m_ObjectHideFlags: 0
@@ -28084,6 +28086,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: ParkWinMenu
+  onCollectEffect: {fileID: 9163842254569548763, guid: 3198dcd99113e154f8e37a1e19f68fb3, type: 3}
+  animationDuration: 1
 --- !u!61 &2076158346
 BoxCollider2D:
   m_ObjectHideFlags: 0
