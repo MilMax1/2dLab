@@ -10911,6 +10911,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 4191059902110151534, guid: 6413b4d8c72ee6449bb3c35dadc79abe, type: 3}
+      propertyPath: m_text
+      value: 0/10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4191059902110151534, guid: 6413b4d8c72ee6449bb3c35dadc79abe, type: 3}
+      propertyPath: m_margin.z
+      value: 25.540497
+      objectReference: {fileID: 0}
     - target: {fileID: 4930072953820364865, guid: 6413b4d8c72ee6449bb3c35dadc79abe, type: 3}
       propertyPath: m_SortingOrder
       value: 100
