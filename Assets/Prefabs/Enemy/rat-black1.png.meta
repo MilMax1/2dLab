@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 96ecdcafed61c5b4a8daffaaa08c292f
+guid: b57174077e0bb465c99c38fa6b8661aa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2624820741241825708
-    second: woodsTransparent_0
+      213: 4791899100654077534
+    second: rat-black1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: woodsTransparent_0
+      name: rat-black1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1716
-        height: 1078
+        x: 1
+        y: 3
+        width: 60
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ca9ebc8ae8c3d6420800000000000000
-      internalID: 2624820741241825708
+      spriteID: e56000ee7de308240800000000000000
+      internalID: 4791899100654077534
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      woodsTransparent_0: 2624820741241825708
+      rat-black1_0: 4791899100654077534
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

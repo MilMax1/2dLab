@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 public class WinMenu : MonoBehaviour
 {
     public string loadGame;
+<<<<<<< HEAD
+=======
+    public bool isPaused;
+>>>>>>> 64b317b9d28a4dde21bdb47c076accefea7fc88f
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -25,6 +29,7 @@ public class WinMenu : MonoBehaviour
         SceneManager.LoadScene("Level 2 City");
     }
     
+
     public void PlayGame()
     {
         SceneManager.LoadScene(loadGame);
@@ -33,5 +38,7 @@ public class WinMenu : MonoBehaviour
     {
         //SceneManager.LoadScene("MenuMain");
         SceneManager.LoadScene("MenuMain");
+        Time.timeScale = 1f;
+        isPaused = false;
     }
 }
