@@ -39,4 +39,11 @@ public class Pausemenu : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
     }
+
+    public void PlayAgainLvl2()
+    {
+        SceneManager.LoadScene("Level 2 City");
+        Time.timeScale = 1f;
+        isPaused = false;
+    }
 }

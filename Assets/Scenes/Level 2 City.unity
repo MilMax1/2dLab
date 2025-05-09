@@ -11344,9 +11344,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2136018022}
-        m_TargetAssemblyTypeName: WinMenu, Assembly-CSharp
-        m_MethodName: LoadLevel
+      - m_Target: {fileID: 2136018024}
+        m_TargetAssemblyTypeName: Pausemenu, Assembly-CSharp
+        m_MethodName: PlayAgainLvl2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
