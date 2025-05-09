@@ -34,6 +34,6 @@ public class UIManager : MonoBehaviour
 
     void UpdateUI()
     {
-        cansCollectedText.text = "" + canCount;
+        cansCollectedText.text = "" + canCount+"/10";
     }
 }
