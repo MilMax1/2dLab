@@ -12889,8 +12889,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1990939259}
   - component: {fileID: 1990939258}
-  - component: {fileID: 1990939260}
   - component: {fileID: 1990939261}
+  - component: {fileID: 1990939262}
   m_Layer: 8
   m_Name: Deathbox
   m_TagString: Untagged
@@ -12959,21 +12959,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1990939260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1990939257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff89d711e926f1d45b7d886974860c33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneToLoad: CityLooseMenu
-  onCollectEffect: {fileID: 0}
-  animationDuration: 1
 --- !u!61 &1990939261
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13020,6 +13005,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.6015229, y: 17.92199}
   m_EdgeRadius: 0
+--- !u!114 &1990939262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990939257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d57a1cdcdda1c429d0ab646bc6d85f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loosemenu: CityLooseMenu
 --- !u!4 &1995253022 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7456544688718092943, guid: 4d17a317dd0295d428323c8cb7a7d828, type: 3}

@@ -4645,8 +4645,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1274376748}
-  - component: {fileID: 1274376747}
   - component: {fileID: 1274376746}
+  - component: {fileID: 1274376749}
   m_Layer: 8
   m_Name: Deathbox
   m_TagString: Untagged
@@ -4700,21 +4700,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 10.587446, y: 24.789654}
   m_EdgeRadius: 0
---- !u!114 &1274376747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274376745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff89d711e926f1d45b7d886974860c33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneToLoad: ParkLooseMenu
-  onCollectEffect: {fileID: 0}
-  animationDuration: 1
 --- !u!4 &1274376748
 Transform:
   m_ObjectHideFlags: 0
@@ -4730,6 +4715,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1274376749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274376745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d57a1cdcdda1c429d0ab646bc6d85f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loosemenu: ParkLooseMenu
 --- !u!4 &1295213740 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7456544688718092943, guid: 4d17a317dd0295d428323c8cb7a7d828, type: 3}
