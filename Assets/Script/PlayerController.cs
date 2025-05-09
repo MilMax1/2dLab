@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int health = 3;
     [SerializeField] private float invulnerabilityTime = 1f;
     [SerializeField] private float flashInterval = 0.1f;
+    public string LooseMenu = "";
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -325,7 +326,7 @@ public class PlayerController : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log("GAME OVER - Player has died!");
-            SceneManager.LoadScene("CityLooseMenu");
+            SceneManager.LoadScene(LooseMenu);
         }
     }
     
