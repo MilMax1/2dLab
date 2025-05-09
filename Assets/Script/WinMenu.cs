@@ -5,12 +5,7 @@ using UnityEngine.SceneManagement;
 public class WinMenu : MonoBehaviour
 {
     public string loadGame;
-<<<<<<< HEAD
-=======
     public bool isPaused;
->>>>>>> 64b317b9d28a4dde21bdb47c076accefea7fc88f
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
