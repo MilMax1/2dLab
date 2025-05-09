@@ -7,6 +7,8 @@ public class CollectCollectible : MonoBehaviour
     public AudioClip onCollectSound;
     public float soundVolume = 1f;
 
+
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.GetComponent<PlayerController>() != null)

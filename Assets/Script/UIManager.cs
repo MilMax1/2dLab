@@ -5,6 +5,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
+    public int totalCollectibles = 10;
     private int canCount = 0;
     public TextMeshProUGUI cansCollectedText;
     public TextMeshProUGUI healthText;
@@ -22,7 +23,10 @@ public class UIManager : MonoBehaviour
         canCount++;
         UpdateUI();
     }
-    
+    public bool AllCollectibles()
+    {
+        return canCount >= totalCollectibles;
+    }
     public void UpdateHealth(int currentHealth)
     {
         healthText.text = "" + currentHealth;
